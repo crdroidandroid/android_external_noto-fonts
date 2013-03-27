@@ -17,7 +17,7 @@
 # get installed too.
 
 PRODUCT_PACKAGES := \
-    NotoSansMalayalam.ttf \
+    NotoSansMalayalam-Regular.ttf \
     NotoSansMalayalam-Bold.ttf \
-    NotoSansMalayalamUI.ttf \
+    NotoSansMalayalamUI-Regular.ttf \
     NotoSansMalayalamUI-Bold.ttf

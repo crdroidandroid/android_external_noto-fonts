@@ -20,4 +20,16 @@ PRODUCT_PACKAGES := \
     NotoSansMalayalam-Regular.ttf \
     NotoSansMalayalam-Bold.ttf \
     NotoSansMalayalamUI-Regular.ttf \
-    NotoSansMalayalamUI-Bold.ttf
+    NotoSansMalayalamUI-Bold.ttf \
+    NotoSansBengali-Regular.ttf \
+    NotoSansBengali-Bold.ttf \
+    NotoSansBengaliUI-Regular.ttf \
+    NotoSansBengaliUI-Bold.ttf \
+    NotoSansKannada-Regular.ttf \
+    NotoSansKannada-Bold.ttf \
+    NotoSansKannadaUI-Regular.ttf \
+    NotoSansKannadaUI-Bold.ttf \
+    NotoSansTelugu-Regular.ttf \
+    NotoSansTelugu-Bold.ttf \
+    NotoSansTeluguUI-Regular.ttf \
+    NotoSansTeluguUI-Bold.ttf

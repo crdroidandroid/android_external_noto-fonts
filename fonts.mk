@@ -32,4 +32,12 @@ PRODUCT_PACKAGES := \
     NotoSansTelugu-Regular.ttf \
     NotoSansTelugu-Bold.ttf \
     NotoSansTeluguUI-Regular.ttf \
-    NotoSansTeluguUI-Bold.ttf
+    NotoSansTeluguUI-Bold.ttf \
+    NotoSansKhmer-Regular.ttf \
+    NotoSansKhmer-Bold.ttf \
+    NotoSansKhmerUI-Regular.ttf \
+    NotoSansKhmerUI-Bold.ttf \
+    NotoSansLao-Regular.ttf \
+    NotoSansLao-Bold.ttf \
+    NotoSansLaoUI-Regular.ttf \
+    NotoSansLaoUI-Bold.ttf

@@ -17,22 +17,18 @@
 # get installed too.
 
 PRODUCT_PACKAGES := \
-    NotoSansMalayalam-Regular.ttf \
-    NotoSansMalayalam-Bold.ttf \
-    NotoSansMalayalamUI-Regular.ttf \
-    NotoSansMalayalamUI-Bold.ttf \
     NotoSansBengali-Regular.ttf \
     NotoSansBengali-Bold.ttf \
     NotoSansBengaliUI-Regular.ttf \
     NotoSansBengaliUI-Bold.ttf \
+    NotoSansDevanagari-Regular.ttf \
+    NotoSansDevanagari-Bold.ttf \
+    NotoSansDevanagariUI-Regular.ttf \
+    NotoSansDevanagariUI-Bold.ttf \
     NotoSansKannada-Regular.ttf \
     NotoSansKannada-Bold.ttf \
     NotoSansKannadaUI-Regular.ttf \
     NotoSansKannadaUI-Bold.ttf \
-    NotoSansTelugu-Regular.ttf \
-    NotoSansTelugu-Bold.ttf \
-    NotoSansTeluguUI-Regular.ttf \
-    NotoSansTeluguUI-Bold.ttf \
     NotoSansKhmer-Regular.ttf \
     NotoSansKhmer-Bold.ttf \
     NotoSansKhmerUI-Regular.ttf \
@@ -41,14 +37,19 @@ PRODUCT_PACKAGES := \
     NotoSansLao-Bold.ttf \
     NotoSansLaoUI-Regular.ttf \
     NotoSansLaoUI-Bold.ttf \
-    NotoSansDevanagari-Regular.ttf \
-    NotoSansDevanagari-Bold.ttf \
-    NotoSansDevanagariUI-Regular.ttf \
-    NotoSansDevanagariUI-Bold.ttf \
+    NotoSansMalayalam-Regular.ttf \
+    NotoSansMalayalam-Bold.ttf \
+    NotoSansMalayalamUI-Regular.ttf \
+    NotoSansMalayalamUI-Bold.ttf \
+    NotoSansSymbols-Regular.ttf \
     NotoSansTamil-Regular.ttf \
     NotoSansTamil-Bold.ttf \
     NotoSansTamilUI-Regular.ttf \
     NotoSansTamilUI-Bold.ttf \
+    NotoSansTelugu-Regular.ttf \
+    NotoSansTelugu-Bold.ttf \
+    NotoSansTeluguUI-Regular.ttf \
+    NotoSansTeluguUI-Bold.ttf \
     NotoSansThai-Regular.ttf \
     NotoSansThai-Bold.ttf \
     NotoSansThaiUI-Regular.ttf \

@@ -40,4 +40,16 @@ PRODUCT_PACKAGES := \
     NotoSansLao-Regular.ttf \
     NotoSansLao-Bold.ttf \
     NotoSansLaoUI-Regular.ttf \
-    NotoSansLaoUI-Bold.ttf
+    NotoSansLaoUI-Bold.ttf \
+    NotoSansDevanagari-Regular.ttf \
+    NotoSansDevanagari-Bold.ttf \
+    NotoSansDevanagariUI-Regular.ttf \
+    NotoSansDevanagariUI-Bold.ttf \
+    NotoSansTamil-Regular.ttf \
+    NotoSansTamil-Bold.ttf \
+    NotoSansTamilUI-Regular.ttf \
+    NotoSansTamilUI-Bold.ttf \
+    NotoSansThai-Regular.ttf \
+    NotoSansThai-Bold.ttf \
+    NotoSansThaiUI-Regular.ttf \
+    NotoSansThaiUI-Bold.ttf

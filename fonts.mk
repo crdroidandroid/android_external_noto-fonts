@@ -17,6 +17,7 @@
 # get installed too.
 
 PRODUCT_PACKAGES := \
+    NotoColorEmoji.ttf \
     NotoSansBengali-Regular.ttf \
     NotoSansBengali-Bold.ttf \
     NotoSansBengaliUI-Regular.ttf \

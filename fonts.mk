@@ -44,8 +44,11 @@ PRODUCT_PACKAGES := \
     NotoSansGurmukhi-Bold.ttf \
     NotoSansGurmukhiUI-Regular.ttf \
     NotoSansGurmukhiUI-Bold.ttf \
+    NotoSansHans-Regular.otf \
+    NotoSansHant-Regular.otf \
     NotoSansHebrew-Regular.ttf \
     NotoSansHebrew-Bold.ttf \
+    NotoSansJP-Regular.otf \
     NotoSansKannada-Regular.ttf \
     NotoSansKannada-Bold.ttf \
     NotoSansKannadaUI-Regular.ttf \
@@ -54,6 +57,7 @@ PRODUCT_PACKAGES := \
     NotoSansKhmer-Bold.ttf \
     NotoSansKhmerUI-Regular.ttf \
     NotoSansKhmerUI-Bold.ttf \
+    NotoSansKR-Regular.otf \
     NotoSansLao-Regular.ttf \
     NotoSansLao-Bold.ttf \
     NotoSansLaoUI-Regular.ttf \

@@ -48,6 +48,8 @@ font_src_files += \
     NotoSansBengali-Bold.ttf \
     NotoSansBengaliUI-Regular.ttf \
     NotoSansBengaliUI-Bold.ttf \
+    NotoSansCanadianAboriginal-Regular.ttf \
+    NotoSansCherokee-Regular.ttf \
     NotoSansDevanagari-Regular.ttf \
     NotoSansDevanagari-Bold.ttf \
     NotoSansDevanagariUI-Regular.ttf \
@@ -96,7 +98,8 @@ font_src_files += \
     NotoSansThai-Regular.ttf \
     NotoSansThai-Bold.ttf \
     NotoSansThaiUI-Regular.ttf \
-    NotoSansThaiUI-Bold.ttf
+    NotoSansThaiUI-Bold.ttf \
+    NotoSansYi-Regular.ttf
 endif # !SMALLER_FONT_FOOTPRINT
 
 #############################################################################

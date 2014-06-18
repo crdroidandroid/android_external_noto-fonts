@@ -28,6 +28,8 @@ PRODUCT_PACKAGES := \
     NotoSansBengali-Bold.ttf \
     NotoSansBengaliUI-Regular.ttf \
     NotoSansBengaliUI-Bold.ttf \
+    NotoSansCanadianAboriginal-Regular.ttf \
+    NotoSansCherokee-Regular.ttf \
     NotoSansDevanagari-Regular.ttf \
     NotoSansDevanagari-Bold.ttf \
     NotoSansDevanagariUI-Regular.ttf \
@@ -85,6 +87,7 @@ PRODUCT_PACKAGES := \
     NotoSansThai-Bold.ttf \
     NotoSansThaiUI-Regular.ttf \
     NotoSansThaiUI-Bold.ttf \
+    NotoSansYi-Regular.ttf \
     NotoSerif-Regular.ttf \
     NotoSerif-Bold.ttf \
     NotoSerif-Italic.ttf \

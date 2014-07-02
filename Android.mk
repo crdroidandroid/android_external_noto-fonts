@@ -45,7 +45,7 @@ font_src_files += \
     NotoSansHans-Regular.otf \
     NotoSansHant-Regular.otf \
     NotoSansJP-Regular.otf \
-    NotoSansKR-Regular.otf
+    NotoSansKR-Regular.otf \
     NotoSansSinhala-Regular.ttf \
     NotoSansSinhala-Bold.ttf \
     NotoSansYi-Regular.ttf
@@ -99,7 +99,7 @@ font_src_files += \
     NotoSansThai-Regular.ttf \
     NotoSansThai-Bold.ttf \
     NotoSansThaiUI-Regular.ttf \
-    NotoSansThaiUI-Bold.ttf \
+    NotoSansThaiUI-Bold.ttf
 endif # !SMALLER_FONT_FOOTPRINT
 
 #############################################################################

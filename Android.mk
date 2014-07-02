@@ -28,14 +28,27 @@ font_src_files += \
     NotoSerif-BoldItalic.ttf
 
 #############################################################################
-# The following fonts are included in EXTENDED_FONT_FOOTPRINT builds
+# The following fonts are only included in EXTENDED_FONT_FOOTPRINT builds
 #############################################################################
 ifeq ($(EXTENDED_FONT_FOOTPRINT),true)
 font_src_files += \
+    NotoSansCanadianAboriginal-Regular.ttf \
+    NotoSansCherokee-Regular.ttf \
+    NotoSansGujarati-Regular.ttf \
+    NotoSansGujarati-Bold.ttf \
+    NotoSansGujaratiUI-Regular.ttf \
+    NotoSansGujaratiUI-Bold.ttf \
+    NotoSansGurmukhi-Regular.ttf \
+    NotoSansGurmukhi-Bold.ttf \
+    NotoSansGurmukhiUI-Regular.ttf \
+    NotoSansGurmukhiUI-Bold.ttf \
     NotoSansHans-Regular.otf \
     NotoSansHant-Regular.otf \
     NotoSansJP-Regular.otf \
     NotoSansKR-Regular.otf
+    NotoSansSinhala-Regular.ttf \
+    NotoSansSinhala-Bold.ttf \
+    NotoSansYi-Regular.ttf
 endif # EXTENDED_FONT_FOOTPRINT
 
 #############################################################################
@@ -48,22 +61,12 @@ font_src_files += \
     NotoSansBengali-Bold.ttf \
     NotoSansBengaliUI-Regular.ttf \
     NotoSansBengaliUI-Bold.ttf \
-    NotoSansCanadianAboriginal-Regular.ttf \
-    NotoSansCherokee-Regular.ttf \
     NotoSansDevanagari-Regular.ttf \
     NotoSansDevanagari-Bold.ttf \
     NotoSansDevanagariUI-Regular.ttf \
     NotoSansDevanagariUI-Bold.ttf \
     NotoSansEthiopic-Regular.ttf \
     NotoSansEthiopic-Bold.ttf \
-    NotoSansGujarati-Regular.ttf \
-    NotoSansGujarati-Bold.ttf \
-    NotoSansGujaratiUI-Regular.ttf \
-    NotoSansGujaratiUI-Bold.ttf \
-    NotoSansGurmukhi-Regular.ttf \
-    NotoSansGurmukhi-Bold.ttf \
-    NotoSansGurmukhiUI-Regular.ttf \
-    NotoSansGurmukhiUI-Bold.ttf \
     NotoSansKannada-Regular.ttf \
     NotoSansKannada-Bold.ttf \
     NotoSansKannadaUI-Regular.ttf \
@@ -84,8 +87,6 @@ font_src_files += \
     NotoSansMyanmar-Bold.ttf \
     NotoSansMyanmarUI-Regular.ttf \
     NotoSansMyanmarUI-Bold.ttf \
-    NotoSansSinhala-Regular.ttf \
-    NotoSansSinhala-Bold.ttf \
     NotoSansSymbols-Regular-Subsetted.ttf \
     NotoSansTamil-Regular.ttf \
     NotoSansTamil-Bold.ttf \
@@ -99,7 +100,6 @@ font_src_files += \
     NotoSansThai-Bold.ttf \
     NotoSansThaiUI-Regular.ttf \
     NotoSansThaiUI-Bold.ttf \
-    NotoSansYi-Regular.ttf
 endif # !SMALLER_FONT_FOOTPRINT
 
 #############################################################################

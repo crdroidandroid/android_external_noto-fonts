@@ -25,7 +25,8 @@ font_src_files += \
     NotoSerif-Regular.ttf \
     NotoSerif-Bold.ttf \
     NotoSerif-Italic.ttf \
-    NotoSerif-BoldItalic.ttf
+    NotoSerif-BoldItalic.ttf \
+    NotoSansSymbols-Regular-Subsetted.ttf
 
 #############################################################################
 # The following fonts are only included in EXTENDED_FONT_FOOTPRINT builds
@@ -87,7 +88,6 @@ font_src_files += \
     NotoSansMyanmar-Bold.ttf \
     NotoSansMyanmarUI-Regular.ttf \
     NotoSansMyanmarUI-Bold.ttf \
-    NotoSansSymbols-Regular-Subsetted.ttf \
     NotoSansTamil-Regular.ttf \
     NotoSansTamil-Bold.ttf \
     NotoSansTamilUI-Regular.ttf \

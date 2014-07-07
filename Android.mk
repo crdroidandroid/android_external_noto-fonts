@@ -45,7 +45,6 @@ font_src_files += \
     NotoSansGurmukhiUI-Bold.ttf \
     NotoSansHans-Regular.otf \
     NotoSansHant-Regular.otf \
-    NotoSansJP-Regular.otf \
     NotoSansKR-Regular.otf \
     NotoSansSinhala-Regular.ttf \
     NotoSansSinhala-Bold.ttf \

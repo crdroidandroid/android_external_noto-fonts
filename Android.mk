@@ -56,7 +56,6 @@ endif # EXTENDED_FONT_FOOTPRINT
 #############################################################################
 ifneq ($(SMALLER_FONT_FOOTPRINT),true)
 font_src_files += \
-    NotoColorEmoji.ttf \
     NotoSansBengali-Regular.ttf \
     NotoSansBengali-Bold.ttf \
     NotoSansBengaliUI-Regular.ttf \
@@ -135,3 +134,29 @@ endef
 $(foreach f, $(font_src_files), $(call build-one-font-module, $(f)))
 build-one-font-module :=
 font_src_files :=
+
+#############################################################################
+# Use Noto Color Emoji with all the flags on EXTENDED_FONT_FOOTPRINT builds,
+# but without it on other builds. On SMALLER_FONT_FOOTPRINT devices, no
+# color emoji font is included.
+#############################################################################
+
+ifneq ($(SMALLER_FONT_FOOTPRINT),true)
+
+ifeq ($(EXTENDED_FONT_FOOTPRINT),true)
+color_emoji_src := NotoColorEmoji-with-flags.ttf
+else  # !EXTENDED_FONT_FOOTPRINT
+color_emoji_src := NotoColorEmoji.ttf
+endif # EXTENDED_FONT_FOOTPRINT
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := NotoColorEmoji.ttf
+LOCAL_SRC_FILES := $(color_emoji_src)
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_OUT)/fonts
+include $(BUILD_PREBUILT)
+
+color_emoji_src :=
+
+endif # !SMALLER_FONT_FOOTPRINT

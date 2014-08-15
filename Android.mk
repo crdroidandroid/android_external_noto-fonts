@@ -144,9 +144,9 @@ font_src_files :=
 ifneq ($(SMALLER_FONT_FOOTPRINT),true)
 
 ifeq ($(EXTENDED_FONT_FOOTPRINT),true)
-color_emoji_src := NotoColorEmoji-with-flags.ttf
-else  # !EXTENDED_FONT_FOOTPRINT
 color_emoji_src := NotoColorEmoji.ttf
+else  # !EXTENDED_FONT_FOOTPRINT
+color_emoji_src := NotoColorEmoji-Subsetted.ttf
 endif # EXTENDED_FONT_FOOTPRINT
 
 include $(CLEAR_VARS)

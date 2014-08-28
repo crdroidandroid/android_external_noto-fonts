@@ -25,8 +25,7 @@ font_src_files += \
     NotoSerif-Regular.ttf \
     NotoSerif-Bold.ttf \
     NotoSerif-Italic.ttf \
-    NotoSerif-BoldItalic.ttf \
-    NotoSansSymbols-Regular-Subsetted.ttf
+    NotoSerif-BoldItalic.ttf
 
 #############################################################################
 # The following fonts are only included in EXTENDED_FONT_FOOTPRINT builds
@@ -136,6 +135,27 @@ build-one-font-module :=
 font_src_files :=
 
 #############################################################################
+# Use a larger subset of Noto Sans Symbols on EXTENDED_FONT_FOOTPRINT
+# builds, but a smaller subset on other devices.
+#############################################################################
+
+ifeq ($(EXTENDED_FONT_FOOTPRINT),true)
+noto_symbols_src := NotoSansSymbols-Regular-Subsetted-Extended.ttf
+else  # !EXTENDED_FONT_FOOTPRINT
+noto_symbols_src := NotoSansSymbols-Regular-Subsetted.ttf
+endif # EXTENDED_FONT_FOOTPRINT
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := NotoSansSymbols-Regular-Subsetted.ttf
+LOCAL_SRC_FILES := $(noto_symbols_src)
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_OUT)/fonts
+include $(BUILD_PREBUILT)
+
+noto_symbols_src :=
+
+#############################################################################
 # Use Noto Color Emoji with all the flags on EXTENDED_FONT_FOOTPRINT builds,
 # but without it on other builds. On SMALLER_FONT_FOOTPRINT devices, no
 # color emoji font is included.
@@ -160,3 +180,23 @@ include $(BUILD_PREBUILT)
 color_emoji_src :=
 
 endif # !SMALLER_FONT_FOOTPRINT
+
+#############################################################################
+# Include a subset of NotoSansJP in EXTENDED_FONT_FOOTPRINT builds.
+#############################################################################
+
+ifeq ($(EXTENDED_FONT_FOOTPRINT),true)
+
+noto_sans_jp_src := NotoSansJP-Regular-Subsetted.otf
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := NotoSansJP-Regular.otf
+LOCAL_SRC_FILES := $(noto_sans_jp_src)
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_OUT)/fonts
+include $(BUILD_PREBUILT)
+
+noto_sans_jp_src :=
+
+endif # EXTENDED_FONT_FOOTPRINT

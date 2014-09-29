@@ -32,6 +32,10 @@ font_src_files += \
 #############################################################################
 ifeq ($(EXTENDED_FONT_FOOTPRINT),true)
 font_src_files += \
+    NotoSansBalinese-Regular.ttf \
+    NotoSansBatak-Regular.ttf \
+    NotoSansBuginese-Regular.ttf \
+    NotoSansBuhid-Regular.ttf \
     NotoSansCanadianAboriginal-Regular.ttf \
     NotoSansCherokee-Regular.ttf \
     NotoSansGujarati-Regular.ttf \
@@ -44,11 +48,26 @@ font_src_files += \
     NotoSansGurmukhiUI-Bold.ttf \
     NotoSansHans-Regular.otf \
     NotoSansHant-Regular.otf \
+    NotoSansHanunoo-Regular.ttf \
+    NotoSansJavanese-Regular.ttf \
     NotoSansKR-Regular.otf \
+    NotoSansLepcha-Regular.ttf \
+    NotoSansLimbu-Regular.ttf \
+    NotoSansMeeteiMayek-Regular.ttf \
+    NotoSansOlChiki-Regular.ttf \
+    NotoSansRejang-Regular.ttf \
+    NotoSansSaurashtra-Regular.ttf \
+    NotoSansSundanese-Regular.ttf \
     NotoSansSinhala-Regular.ttf \
     NotoSansSinhala-Bold.ttf \
+    NotoSansSylotiNagri-Regular.ttf \
+    NotoSansTagbanwa-Regular.ttf \
+    NotoSansThaana-Regular.ttf \
+    NotoSansThaana-Bold.ttf \
     NotoSansYi-Regular.ttf
 endif # EXTENDED_FONT_FOOTPRINT
+
+
 
 #############################################################################
 # The following fonts are excluded from SMALLER_FONT_FOOTPRINT builds

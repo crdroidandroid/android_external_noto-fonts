@@ -24,10 +24,14 @@ PRODUCT_PACKAGES := \
     NotoNaskhUI-Bold.ttf \
     NotoSansArmenian-Regular.ttf \
     NotoSansArmenian-Bold.ttf \
+    NotoSansBalinese-Regular.ttf \
+    NotoSansBatak-Regular.ttf \
     NotoSansBengali-Regular.ttf \
     NotoSansBengali-Bold.ttf \
     NotoSansBengaliUI-Regular.ttf \
     NotoSansBengaliUI-Bold.ttf \
+    NotoSansBuginese-Regular.ttf \
+    NotoSansBuhid-Regular.ttf \
     NotoSansCanadianAboriginal-Regular.ttf \
     NotoSansCherokee-Regular.ttf \
     NotoSansDevanagari-Regular.ttf \
@@ -48,8 +52,10 @@ PRODUCT_PACKAGES := \
     NotoSansGurmukhiUI-Bold.ttf \
     NotoSansHans-Regular.otf \
     NotoSansHant-Regular.otf \
+    NotoSansHanunoo-Regular.ttf \
     NotoSansHebrew-Regular.ttf \
     NotoSansHebrew-Bold.ttf \
+    NotoSansJavanese-Regular.ttf \
     NotoSansJP-Regular.otf \
     NotoSansKannada-Regular.ttf \
     NotoSansKannada-Bold.ttf \
@@ -64,17 +70,26 @@ PRODUCT_PACKAGES := \
     NotoSansLao-Bold.ttf \
     NotoSansLaoUI-Regular.ttf \
     NotoSansLaoUI-Bold.ttf \
+    NotoSansLepcha-Regular.ttf \
+    NotoSansLimbu-Regular.ttf \
     NotoSansMalayalam-Regular.ttf \
     NotoSansMalayalam-Bold.ttf \
     NotoSansMalayalamUI-Regular.ttf \
     NotoSansMalayalamUI-Bold.ttf \
+    NotoSansMeeteiMayek-Regular.ttf \
     NotoSansMyanmar-Regular.ttf \
     NotoSansMyanmar-Bold.ttf \
     NotoSansMyanmarUI-Regular.ttf \
     NotoSansMyanmarUI-Bold.ttf \
+    NotoSansOlChiki-Regular.ttf \
+    NotoSansRejang-Regular.ttf \
+    NotoSansSaurashtra-Regular.ttf \
     NotoSansSinhala-Regular.ttf \
     NotoSansSinhala-Bold.ttf \
+    NotoSansSundanese-Regular.ttf \
+    NotoSansSylotiNagri-Regular.ttf \
     NotoSansSymbols-Regular-Subsetted.ttf \
+    NotoSansTagbanwa-Regular.ttf \
     NotoSansTamil-Regular.ttf \
     NotoSansTamil-Bold.ttf \
     NotoSansTamilUI-Regular.ttf \
@@ -83,6 +98,8 @@ PRODUCT_PACKAGES := \
     NotoSansTelugu-Bold.ttf \
     NotoSansTeluguUI-Regular.ttf \
     NotoSansTeluguUI-Bold.ttf \
+    NotoSansThaana-Regular.ttf \
+    NotoSansThaana-Bold.ttf \
     NotoSansThai-Regular.ttf \
     NotoSansThai-Bold.ttf \
     NotoSansThaiUI-Regular.ttf \

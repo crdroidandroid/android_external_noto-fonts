@@ -37,7 +37,11 @@ font_src_files += \
     NotoSansBuginese-Regular.ttf \
     NotoSansBuhid-Regular.ttf \
     NotoSansCanadianAboriginal-Regular.ttf \
+    NotoSansCham-Regular.ttf \
+    NotoSansCham-Bold.ttf \
     NotoSansCherokee-Regular.ttf \
+    NotoSansCoptic-Regular.ttf \
+    NotoSansGlagolitic-Regular.ttf \
     NotoSansGujarati-Regular.ttf \
     NotoSansGujarati-Bold.ttf \
     NotoSansGujaratiUI-Regular.ttf \
@@ -50,6 +54,7 @@ font_src_files += \
     NotoSansHant-Regular.otf \
     NotoSansHanunoo-Regular.ttf \
     NotoSansJavanese-Regular.ttf \
+    NotoSansKayahLi-Regular.ttf \
     NotoSansKR-Regular.otf \
     NotoSansLepcha-Regular.ttf \
     NotoSansLimbu-Regular.ttf \
@@ -62,8 +67,12 @@ font_src_files += \
     NotoSansSinhala-Bold.ttf \
     NotoSansSylotiNagri-Regular.ttf \
     NotoSansTagbanwa-Regular.ttf \
+    NotoSansTaiLe-Regular.ttf \
+    NotoSansTaiTham-Regular.ttf \
+    NotoSansTaiViet-Regular.ttf \
     NotoSansThaana-Regular.ttf \
     NotoSansThaana-Bold.ttf \
+    NotoSansTifinagh-Regular.ttf \
     NotoSansYi-Regular.ttf
 endif # EXTENDED_FONT_FOOTPRINT
 

@@ -210,12 +210,16 @@ color_emoji_src :=
 endif # !SMALLER_FONT_FOOTPRINT
 
 #############################################################################
-# Include a subset of NotoSansJP in EXTENDED_FONT_FOOTPRINT builds.
+# Include NotoSansJP (or a subset) in EXTENDED_FONT_FOOTPRINT builds.
 #############################################################################
 
 ifeq ($(EXTENDED_FONT_FOOTPRINT),true)
 
+ifeq ($(FONT_NOTOSANS_FULL),true)
+noto_sans_jp_src := NotoSansJP-Regular.otf
+else
 noto_sans_jp_src := NotoSansJP-Regular-Subsetted.otf
+endif
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := NotoSansJP-Regular.otf

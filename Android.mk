@@ -60,6 +60,10 @@ font_src_files += \
     NotoSansLimbu-Regular.ttf \
     NotoSansMeeteiMayek-Regular.ttf \
     NotoSansOlChiki-Regular.ttf \
+    NotoSansOriya-Regular.ttf \
+    NotoSansOriya-Bold.ttf \
+    NotoSansOriyaUI-Regular.ttf \
+    NotoSansOriyaUI-Bold.ttf \
     NotoSansRejang-Regular.ttf \
     NotoSansSaurashtra-Regular.ttf \
     NotoSansSundanese-Regular.ttf \

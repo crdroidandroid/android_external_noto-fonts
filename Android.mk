@@ -33,6 +33,7 @@ font_src_files += \
 ifeq ($(EXTENDED_FONT_FOOTPRINT),true)
 font_src_files += \
     NotoSansBalinese-Regular.ttf \
+    NotoSansBamum-Regular.ttf \
     NotoSansBatak-Regular.ttf \
     NotoSansBuginese-Regular.ttf \
     NotoSansBuhid-Regular.ttf \
@@ -58,7 +59,12 @@ font_src_files += \
     NotoSansKR-Regular.otf \
     NotoSansLepcha-Regular.ttf \
     NotoSansLimbu-Regular.ttf \
+    NotoSansLisu-Regular.ttf \
+    NotoSansMandaic-Regular.ttf \
     NotoSansMeeteiMayek-Regular.ttf \
+    NotoSansMongolian-Regular.ttf \
+    NotoSansNewTaiLue-Regular.ttf \
+    NotoSansNKo-Regular.ttf \
     NotoSansOlChiki-Regular.ttf \
     NotoSansOriya-Regular.ttf \
     NotoSansOriya-Bold.ttf \
@@ -66,10 +72,11 @@ font_src_files += \
     NotoSansOriyaUI-Bold.ttf \
     NotoSansRejang-Regular.ttf \
     NotoSansSaurashtra-Regular.ttf \
-    NotoSansSundanese-Regular.ttf \
     NotoSansSinhala-Regular.ttf \
     NotoSansSinhala-Bold.ttf \
+    NotoSansSundanese-Regular.ttf \
     NotoSansSylotiNagri-Regular.ttf \
+    NotoSansSyriacEstrangela-Regular.ttf \
     NotoSansTagbanwa-Regular.ttf \
     NotoSansTaiLe-Regular.ttf \
     NotoSansTaiTham-Regular.ttf \
@@ -77,6 +84,7 @@ font_src_files += \
     NotoSansThaana-Regular.ttf \
     NotoSansThaana-Bold.ttf \
     NotoSansTifinagh-Regular.ttf \
+    NotoSansVai-Regular.ttf \
     NotoSansYi-Regular.ttf
 endif # EXTENDED_FONT_FOOTPRINT
 

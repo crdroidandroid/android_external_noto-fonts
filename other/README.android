@@ -1,0 +1,16 @@
+URL: https://code.google.com/p/noto/
+Version: various
+License: Apache 2.0
+License File: NOTICE
+
+Description:
+Noto fonts, for supporting several languages and scripts.
+
+Local Modifications:
+This directory does not necessarily track upstream exactly, and
+contains only the fonts needed for Android (the unhinted versions in
+particular). We do not include any of the tools.
+
+Additionally:
+* The fonts here may be subsetted or compressed for size.
+* Tamil and Malayalam fonts are scaled by 90%.

@@ -12,23 +12,81 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# We have to use BUILD_PREBUILT instead of PRODUCT_COPY_FIES,
-# to copy over the NOTICE file.
+NOTO_DIR := $(call my-dir)
 
-LOCAL_PATH := $(call my-dir)
+# We have to use BUILD_PREBUILT instead of PRODUCT_COPY_FILES,
+# to copy over the NOTICE file.
+#############################################################################
+# $(1): The source file name in LOCAL_PATH.
+#       It also serves as the module name and the dest file name.
+#############################################################################
+define build-one-font-module
+$(eval include $(CLEAR_VARS))\
+$(eval LOCAL_MODULE := $(1))\
+$(eval LOCAL_SRC_FILES := $(1))\
+$(eval LOCAL_MODULE_CLASS := ETC)\
+$(eval LOCAL_MODULE_TAGS := optional)\
+$(eval LOCAL_MODULE_PATH := $(TARGET_OUT)/fonts)\
+$(eval include $(BUILD_PREBUILT))
+endef
+
+
+#############################################################################
+# First "build" the Noto CJK fonts, which have their own directory and
+# license. These are only included in EXTENDED_FONT_FOOTPRINT builds.
+#############################################################################
+
+ifeq ($(EXTENDED_FONT_FOOTPRINT),true)
+LOCAL_PATH := $(NOTO_DIR)/cjk
+
+font_src_files := \
+    NotoSansKR-Regular.otf \
+    NotoSansSC-Regular.otf \
+    NotoSansTC-Regular.otf
+
+$(foreach f, $(font_src_files), $(call build-one-font-module, $(f)))
 font_src_files :=
 
 #############################################################################
-# The following fonts are included in all builds
+# Include NotoSansJP, or a subset.
 #############################################################################
-font_src_files += \
+
+ifeq ($(FONT_NOTOSANS_JP_FULL),true)
+noto_sans_jp_src := NotoSansJP-Regular.otf
+else
+noto_sans_jp_src := NotoSansJP-Regular-Subsetted.otf
+endif # FONT_NOTOSANS_JP_FULL
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := NotoSansJP-Regular.otf
+LOCAL_SRC_FILES := $(noto_sans_jp_src)
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_OUT)/fonts
+include $(BUILD_PREBUILT)
+
+noto_sans_jp_src :=
+
+endif # EXTENDED_FONT_FOOTPRINT
+
+
+#############################################################################
+# Now "build" the rest of the fonts, which live in a separate subdirectory.
+#############################################################################
+LOCAL_PATH := $(NOTO_DIR)/other
+NOTO_DIR :=
+
+#############################################################################
+# The following fonts are included in all builds.
+#############################################################################
+font_src_files := \
     NotoSerif-Regular.ttf \
     NotoSerif-Bold.ttf \
     NotoSerif-Italic.ttf \
     NotoSerif-BoldItalic.ttf
 
 #############################################################################
-# The following fonts are only included in EXTENDED_FONT_FOOTPRINT builds
+# The following fonts are only included in EXTENDED_FONT_FOOTPRINT builds.
 #############################################################################
 ifeq ($(EXTENDED_FONT_FOOTPRINT),true)
 font_src_files += \
@@ -51,12 +109,9 @@ font_src_files += \
     NotoSansGurmukhi-Bold.ttf \
     NotoSansGurmukhiUI-Regular.ttf \
     NotoSansGurmukhiUI-Bold.ttf \
-    NotoSansHans-Regular.otf \
-    NotoSansHant-Regular.otf \
     NotoSansHanunoo-Regular.ttf \
     NotoSansJavanese-Regular.ttf \
     NotoSansKayahLi-Regular.ttf \
-    NotoSansKR-Regular.otf \
     NotoSansLepcha-Regular.ttf \
     NotoSansLimbu-Regular.ttf \
     NotoSansLisu-Regular.ttf \
@@ -88,10 +143,8 @@ font_src_files += \
     NotoSansYi-Regular.ttf
 endif # EXTENDED_FONT_FOOTPRINT
 
-
-
 #############################################################################
-# The following fonts are excluded from SMALLER_FONT_FOOTPRINT builds
+# The following fonts are excluded from SMALLER_FONT_FOOTPRINT builds.
 #############################################################################
 ifneq ($(SMALLER_FONT_FOOTPRINT),true)
 font_src_files += \
@@ -140,7 +193,7 @@ font_src_files += \
 endif # !SMALLER_FONT_FOOTPRINT
 
 #############################################################################
-# The following fonts are excluded from MINIMAL_FONT_FOOTPRINT builds
+# The following fonts are excluded from MINIMAL_FONT_FOOTPRINT builds.
 #############################################################################
 ifneq ($(MINIMAL_FONT_FOOTPRINT),true)
 font_src_files += \
@@ -156,20 +209,6 @@ font_src_files += \
     NotoSansHebrew-Bold.ttf
 endif # !MINIMAL_FONT_FOOTPRINT
 
-#############################################################################
-# $(1): The source file name in LOCAL_PATH.
-#       It also serves as the module name and the dest file name.
-#############################################################################
-define build-one-font-module
-$(eval include $(CLEAR_VARS))\
-$(eval LOCAL_MODULE := $(1))\
-$(eval LOCAL_SRC_FILES := $(1))\
-$(eval LOCAL_MODULE_CLASS := ETC)\
-$(eval LOCAL_MODULE_TAGS := optional)\
-$(eval LOCAL_MODULE_PATH := $(TARGET_OUT)/fonts)\
-$(eval include $(BUILD_PREBUILT))
-endef
-
 $(foreach f, $(font_src_files), $(call build-one-font-module, $(f)))
 build-one-font-module :=
 font_src_files :=
@@ -178,7 +217,6 @@ font_src_files :=
 # Use a larger subset of Noto Sans Symbols on EXTENDED_FONT_FOOTPRINT
 # builds, but a smaller subset on other devices.
 #############################################################################
-
 ifeq ($(EXTENDED_FONT_FOOTPRINT),true)
 noto_symbols_src := NotoSansSymbols-Regular-Subsetted-Extended.ttf
 else  # !EXTENDED_FONT_FOOTPRINT
@@ -200,7 +238,6 @@ noto_symbols_src :=
 # but without it on other builds. On SMALLER_FONT_FOOTPRINT devices, no
 # color emoji font is included.
 #############################################################################
-
 ifneq ($(SMALLER_FONT_FOOTPRINT),true)
 
 ifeq ($(EXTENDED_FONT_FOOTPRINT),true)
@@ -220,27 +257,3 @@ include $(BUILD_PREBUILT)
 color_emoji_src :=
 
 endif # !SMALLER_FONT_FOOTPRINT
-
-#############################################################################
-# Include NotoSansJP (or a subset) in EXTENDED_FONT_FOOTPRINT builds.
-#############################################################################
-
-ifeq ($(EXTENDED_FONT_FOOTPRINT),true)
-
-ifeq ($(FONT_NOTOSANS_JP_FULL),true)
-noto_sans_jp_src := NotoSansJP-Regular.otf
-else
-noto_sans_jp_src := NotoSansJP-Regular-Subsetted.otf
-endif # FONT_NOTOSANS_JP_FULL
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := NotoSansJP-Regular.otf
-LOCAL_SRC_FILES := $(noto_sans_jp_src)
-LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_PATH := $(TARGET_OUT)/fonts
-include $(BUILD_PREBUILT)
-
-noto_sans_jp_src :=
-
-endif # EXTENDED_FONT_FOOTPRINT

@@ -55,8 +55,6 @@ PRODUCT_PACKAGES := \
     NotoSansGurmukhi-Bold.ttf \
     NotoSansGurmukhiUI-Regular.ttf \
     NotoSansGurmukhiUI-Bold.ttf \
-    NotoSansHans-Regular.otf \
-    NotoSansHant-Regular.otf \
     NotoSansHanunoo-Regular.ttf \
     NotoSansHebrew-Regular.ttf \
     NotoSansHebrew-Bold.ttf \
@@ -99,6 +97,7 @@ PRODUCT_PACKAGES := \
     NotoSansOriyaUI-Bold.ttf \
     NotoSansRejang-Regular.ttf \
     NotoSansSaurashtra-Regular.ttf \
+    NotoSansSC-Regular.otf \
     NotoSansSinhala-Regular.ttf \
     NotoSansSinhala-Bold.ttf \
     NotoSansSundanese-Regular.ttf \
@@ -113,6 +112,7 @@ PRODUCT_PACKAGES := \
     NotoSansTamil-Bold.ttf \
     NotoSansTamilUI-Regular.ttf \
     NotoSansTamilUI-Bold.ttf \
+    NotoSansTC-Regular.otf \
     NotoSansTelugu-Regular.ttf \
     NotoSansTelugu-Bold.ttf \
     NotoSansTeluguUI-Regular.ttf \

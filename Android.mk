@@ -227,11 +227,11 @@ endif # !SMALLER_FONT_FOOTPRINT
 
 ifeq ($(EXTENDED_FONT_FOOTPRINT),true)
 
-ifeq ($(FONT_NOTOSANS_FULL),true)
+ifeq ($(FONT_NOTOSANS_JP_FULL),true)
 noto_sans_jp_src := NotoSansJP-Regular.otf
 else
 noto_sans_jp_src := NotoSansJP-Regular-Subsetted.otf
-endif
+endif # FONT_NOTOSANS_JP_FULL
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := NotoSansJP-Regular.otf

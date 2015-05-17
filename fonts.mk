@@ -18,10 +18,10 @@
 
 PRODUCT_PACKAGES := \
     NotoColorEmoji.ttf \
-    NotoNaskh-Regular.ttf \
-    NotoNaskh-Bold.ttf \
-    NotoNaskhUI-Regular.ttf \
-    NotoNaskhUI-Bold.ttf \
+    NotoNaskhArabic-Regular.ttf \
+    NotoNaskhArabic-Bold.ttf \
+    NotoNaskhArabicUI-Regular.ttf \
+    NotoNaskhArabicUI-Bold.ttf \
     NotoSansArmenian-Regular.ttf \
     NotoSansArmenian-Bold.ttf \
     NotoSansBalinese-Regular.ttf \
@@ -123,6 +123,7 @@ PRODUCT_PACKAGES := \
     NotoSansThai-Bold.ttf \
     NotoSansThaiUI-Regular.ttf \
     NotoSansThaiUI-Bold.ttf \
+    NotoSansTibetan-Regular.ttf \
     NotoSansTifinagh-Regular.ttf \
     NotoSansVai-Regular.ttf \
     NotoSansYi-Regular.ttf \

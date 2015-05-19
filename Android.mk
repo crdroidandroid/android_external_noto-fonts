@@ -143,6 +143,7 @@ font_src_files += \
     NotoSansTaiViet-Regular.ttf \
     NotoSansThaana-Regular.ttf \
     NotoSansThaana-Bold.ttf \
+    NotoSansTibetan-Regular.ttf \
     NotoSansTifinagh-Regular.ttf \
     NotoSansVai-Regular.ttf \
     NotoSansYi-Regular.ttf
@@ -202,10 +203,10 @@ endif # !SMALLER_FONT_FOOTPRINT
 #############################################################################
 ifneq ($(MINIMAL_FONT_FOOTPRINT),true)
 font_src_files += \
-    NotoNaskh-Regular.ttf \
-    NotoNaskh-Bold.ttf \
-    NotoNaskhUI-Regular.ttf \
-    NotoNaskhUI-Bold.ttf \
+    NotoNaskhArabic-Regular.ttf \
+    NotoNaskhArabic-Bold.ttf \
+    NotoNaskhArabicUI-Regular.ttf \
+    NotoNaskhArabicUI-Bold.ttf \
     NotoSansArmenian-Regular.ttf \
     NotoSansArmenian-Bold.ttf \
     NotoSansGeorgian-Regular.ttf \

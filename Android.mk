@@ -212,32 +212,13 @@ font_src_files += \
     NotoSansGeorgian-Regular.ttf \
     NotoSansGeorgian-Bold.ttf \
     NotoSansHebrew-Regular.ttf \
-    NotoSansHebrew-Bold.ttf
+    NotoSansHebrew-Bold.ttf \
+    NotoSansSymbols-Regular-Subsetted.ttf
 endif # !MINIMAL_FONT_FOOTPRINT
 
 $(foreach f, $(font_src_files), $(call build-one-font-module, $(f)))
 build-one-font-module :=
 font_src_files :=
-
-#############################################################################
-# Use a larger subset of Noto Sans Symbols on EXTENDED_FONT_FOOTPRINT
-# builds, but a smaller subset on other devices.
-#############################################################################
-ifeq ($(EXTENDED_FONT_FOOTPRINT),true)
-noto_symbols_src := NotoSansSymbols-Regular-Subsetted-Extended.ttf
-else  # !EXTENDED_FONT_FOOTPRINT
-noto_symbols_src := NotoSansSymbols-Regular-Subsetted.ttf
-endif # EXTENDED_FONT_FOOTPRINT
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := NotoSansSymbols-Regular-Subsetted.ttf
-LOCAL_SRC_FILES := $(noto_symbols_src)
-LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_PATH := $(TARGET_OUT)/fonts
-include $(BUILD_PREBUILT)
-
-noto_symbols_src :=
 
 #############################################################################
 # Use Noto Color Emoji with all the flags on EXTENDED_FONT_FOOTPRINT builds,

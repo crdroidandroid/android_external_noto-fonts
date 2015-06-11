@@ -160,6 +160,22 @@ BMP_DEFAULT_EMOJI = {
     0x2B55, # ⭕ HEAVY LARGE CIRCLE
 }
 
+# Characters we have decided we are doing as emoji-style in Android,
+# despite UTR#51's recommendation
+ANDROID_EMOJI = {
+    0x2600, # ☀ BLACK SUN WITH RAYS
+    0x2601, # ☁ CLOUD
+    0X260E, # ☎ BLACK TELEPHONE
+    0x261D, # ☝ WHITE UP POINTING INDEX
+    0x263A, # ☺ WHITE SMILING FACE
+    0x2660, # ♠ BLACK SPADE SUIT
+    0x2663, # ♣ BLACK CLUB SUIT
+    0x2665, # ♥ BLACK HEART SUIT
+    0x2666, # ♦ BLACK DIAMOND SUIT
+    0x270C, # ✌ VICTORY HAND
+    0x2744, # ❄ SNOWFLAKE
+    0x2764, # ❤ HEAVY BLACK HEART
+}
 
 def main(argv):
     """Subset the Noto Symbols font.
@@ -178,7 +194,7 @@ def main(argv):
     # Remove characters preferably coming from Roboto
     target_coverage -= LETTERLIKE_CHARS_IN_ROBOTO
     # Remove characters that are supposed to default to emoji
-    target_coverage -= BMP_DEFAULT_EMOJI
+    target_coverage -= BMP_DEFAULT_EMOJI | ANDROID_EMOJI
 
     # Remove dentistry symbols, as their main use appears to be for CJK:
     # http://www.unicode.org/L2/L2000/00098-n2195.pdf

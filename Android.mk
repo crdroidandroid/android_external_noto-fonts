@@ -14,12 +14,9 @@
 
 NOTO_DIR := $(call my-dir)
 
-# Use full Noto Sans Japanese font on the normal footprints, but
-# exclude it from SMALLER and use a subset on the CONSTRAINED ones.
+# Use full Noto Sans Japanese font on non-smaller footprints
 ifneq ($(SMALLER_FONT_FOOTPRINT),true)
-ifneq ($(CONSTRAINED_FONT_FOOTPRINT),true)
 FONT_NOTOSANS_JP_FULL := true
-endif
 endif
 
 # We have to use BUILD_PREBUILT instead of PRODUCT_COPY_FILES,
@@ -46,7 +43,6 @@ endef
 ifneq ($(SMALLER_FONT_FOOTPRINT),true)
 LOCAL_PATH := $(NOTO_DIR)/cjk
 
-ifneq ($(CONSTRAINED_FONT_FOOTPRINT),true)
 font_src_files := \
     NotoSansKR-Regular.otf \
     NotoSansSC-Regular.otf \
@@ -54,7 +50,6 @@ font_src_files := \
 
 $(foreach f, $(font_src_files), $(call build-one-font-module, $(f)))
 font_src_files :=
-endif # !CONSTRAINED_FONT_FOOTPRINT
 
 #############################################################################
 # Include NotoSansJP, or a subset.
@@ -100,6 +95,7 @@ ifneq ($(SMALLER_FONT_FOOTPRINT),true)
 font_src_files += \
     NotoColorEmoji.ttf \
     NotoSansBalinese-Regular.ttf \
+    NotoSansBamum-Regular.ttf \
     NotoSansBatak-Regular.ttf \
     NotoSansBengali-Regular.ttf \
     NotoSansBengali-Bold.ttf \
@@ -144,25 +140,32 @@ font_src_files += \
     NotoSansLaoUI-Bold.ttf \
     NotoSansLepcha-Regular.ttf \
     NotoSansLimbu-Regular.ttf \
+    NotoSansLisu-Regular.ttf \
     NotoSansMalayalam-Regular.ttf \
     NotoSansMalayalam-Bold.ttf \
     NotoSansMalayalamUI-Regular.ttf \
     NotoSansMalayalamUI-Bold.ttf \
+    NotoSansMandaic-Regular.ttf \
     NotoSansMeeteiMayek-Regular.ttf \
+    NotoSansMongolian-Regular.ttf \
     NotoSansMyanmar-Regular.ttf \
     NotoSansMyanmar-Bold.ttf \
     NotoSansMyanmarUI-Regular.ttf \
     NotoSansMyanmarUI-Bold.ttf \
+    NotoSansNewTaiLue-Regular.ttf \
     NotoSansNKo-Regular.ttf \
     NotoSansOlChiki-Regular.ttf \
     NotoSansOriya-Regular.ttf \
+    NotoSansOriya-Bold.ttf \
     NotoSansOriyaUI-Regular.ttf \
+    NotoSansOriyaUI-Bold.ttf \
     NotoSansRejang-Regular.ttf \
     NotoSansSaurashtra-Regular.ttf \
     NotoSansSinhala-Regular.ttf \
     NotoSansSinhala-Bold.ttf \
     NotoSansSundanese-Regular.ttf \
     NotoSansSylotiNagri-Regular.ttf \
+    NotoSansSyriacEstrangela-Regular.ttf \
     NotoSansTagbanwa-Regular.ttf \
     NotoSansTaiLe-Regular.ttf \
     NotoSansTaiTham-Regular.ttf \
@@ -181,26 +184,10 @@ font_src_files += \
     NotoSansThai-Bold.ttf \
     NotoSansThaiUI-Regular.ttf \
     NotoSansThaiUI-Bold.ttf \
-    NotoSansTifinagh-Regular.ttf \
-    NotoSansYi-Regular.ttf
-
-#############################################################################
-# The following fonts are excluded from CONSTRAINED_FONT_FOOTPRINT builds.
-#############################################################################
-ifneq ($(CONSTRAINED_FONT_FOOTPRINT),true)
-font_src_files += \
-    NotoSansBamum-Regular.ttf \
-    NotoSansLisu-Regular.ttf \
-    NotoSansMandaic-Regular.ttf \
-    NotoSansMongolian-Regular.ttf \
-    NotoSansNewTaiLue-Regular.ttf \
-    NotoSansOriya-Bold.ttf \
-    NotoSansOriyaUI-Bold.ttf \
-    NotoSansSyriacEstrangela-Regular.ttf \
     NotoSansTibetan-Regular.ttf \
-    NotoSansVai-Regular.ttf
-endif # !CONSTRAINED_FONT_FOOTPRINT
-
+    NotoSansTifinagh-Regular.ttf \
+    NotoSansVai-Regular.ttf \
+    NotoSansYi-Regular.ttf
 endif # !SMALLER_FONT_FOOTPRINT
 
 #############################################################################

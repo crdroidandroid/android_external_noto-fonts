@@ -101,6 +101,7 @@ PRODUCT_PACKAGES := \
     NotoSansSundanese-Regular.ttf \
     NotoSansSylotiNagri-Regular.ttf \
     NotoSansSymbols-Regular-Subsetted.ttf \
+    NotoSansSymbols-Regular-Subsetted2.ttf \
     NotoSansSyriacEstrangela-Regular.ttf \
     NotoSansTagbanwa-Regular.ttf \
     NotoSansTaiLe-Regular.ttf \
@@ -121,6 +122,7 @@ PRODUCT_PACKAGES := \
     NotoSansThaiUI-Regular.ttf \
     NotoSansThaiUI-Bold.ttf \
     NotoSansTibetan-Regular.ttf \
+    NotoSansTibetan-Bold.ttf \
     NotoSansTifinagh-Regular.ttf \
     NotoSansVai-Regular.ttf \
     NotoSansYi-Regular.ttf \

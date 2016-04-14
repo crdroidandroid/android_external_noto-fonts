@@ -159,6 +159,7 @@ font_src_files += \
     NotoSansThaiUI-Regular.ttf \
     NotoSansThaiUI-Bold.ttf \
     NotoSansTibetan-Regular.ttf \
+    NotoSansTibetan-Bold.ttf \
     NotoSansTifinagh-Regular.ttf \
     NotoSansVai-Regular.ttf \
     NotoSansYi-Regular.ttf
@@ -179,7 +180,8 @@ font_src_files += \
     NotoSansGeorgian-Bold.ttf \
     NotoSansHebrew-Regular.ttf \
     NotoSansHebrew-Bold.ttf \
-    NotoSansSymbols-Regular-Subsetted.ttf
+    NotoSansSymbols-Regular-Subsetted.ttf \
+    NotoSansSymbols-Regular-Subsetted2.ttf
 endif # !MINIMAL_FONT_FOOTPRINT
 
 $(foreach f, $(font_src_files), $(call build-one-font-module, $(f)))

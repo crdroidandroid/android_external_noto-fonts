@@ -32,8 +32,8 @@ endef
 
 
 #############################################################################
-# First "build" the Noto CJK fonts, which have their own directory and
-# license. These are not included in SMALLER_FONT_FOOTPRINT builds.
+# First "build" the Noto CJK fonts, which have a different directory and
+# copyright holder. These are not included in SMALLER_FONT_FOOTPRINT builds.
 #############################################################################
 ifneq ($(SMALLER_FONT_FOOTPRINT),true)
 LOCAL_PATH := $(NOTO_DIR)/cjk
@@ -46,6 +46,20 @@ font_src_files :=
 
 endif # !SMALLER_FONT_FOOTPRINT
 
+#############################################################################
+# Now "build" the Noto Color Emoji font, which is in its own directory. It is
+# not included in the SMALLER_FONT_FOOTPRINT builds.
+#############################################################################
+ifneq ($(SMALLER_FONT_FOOTPRINT),true)
+LOCAL_PATH := $(NOTO_DIR)/emoji
+
+font_src_files := \
+    NotoColorEmoji.ttf
+
+$(foreach f, $(font_src_files), $(call build-one-font-module, $(f)))
+font_src_files :=
+
+endif # !SMALLER_FONT_FOOTPRINT
 
 #############################################################################
 # Now "build" the rest of the fonts, which live in a separate subdirectory.
@@ -67,7 +81,6 @@ font_src_files := \
 #############################################################################
 ifneq ($(SMALLER_FONT_FOOTPRINT),true)
 font_src_files += \
-    NotoColorEmoji.ttf \
     NotoSansBalinese-Regular.ttf \
     NotoSansBamum-Regular.ttf \
     NotoSansBatak-Regular.ttf \

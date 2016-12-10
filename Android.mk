@@ -33,9 +33,9 @@ endef
 
 #############################################################################
 # First "build" the Noto CJK fonts, which have a different directory and
-# copyright holder. These are not included in SMALLER_FONT_FOOTPRINT builds.
+# copyright holder. These are not included in MINIMAL_FONT_FOOTPRINT builds.
 #############################################################################
-ifneq ($(SMALLER_FONT_FOOTPRINT),true)
+ifneq ($(MINIMAL_FONT_FOOTPRINT),true)
 LOCAL_PATH := $(NOTO_DIR)/cjk
 
 font_src_files := \
@@ -44,13 +44,13 @@ font_src_files := \
 $(foreach f, $(font_src_files), $(call build-one-font-module, $(f)))
 font_src_files :=
 
-endif # !SMALLER_FONT_FOOTPRINT
+endif # !MINIMAL_FONT_FOOTPRINT
 
 #############################################################################
 # Now "build" the Noto Color Emoji font, which is in its own directory. It is
-# not included in the SMALLER_FONT_FOOTPRINT builds.
+# not included in the MINIMAL_FONT_FOOTPRINT builds.
 #############################################################################
-ifneq ($(SMALLER_FONT_FOOTPRINT),true)
+ifneq ($(MINIMAL_FONT_FOOTPRINT),true)
 LOCAL_PATH := $(NOTO_DIR)/emoji
 
 font_src_files := \
@@ -59,7 +59,7 @@ font_src_files := \
 $(foreach f, $(font_src_files), $(call build-one-font-module, $(f)))
 font_src_files :=
 
-endif # !SMALLER_FONT_FOOTPRINT
+endif # !MINIMAL_FONT_FOOTPRINT
 
 #############################################################################
 # Now "build" the rest of the fonts, which live in a separate subdirectory.
@@ -95,10 +95,6 @@ font_src_files += \
     NotoSansCham-Bold.ttf \
     NotoSansCherokee-Regular.ttf \
     NotoSansCoptic-Regular.ttf \
-    NotoSansDevanagari-Regular.ttf \
-    NotoSansDevanagari-Bold.ttf \
-    NotoSansDevanagariUI-Regular.ttf \
-    NotoSansDevanagariUI-Bold.ttf \
     NotoSansEthiopic-Regular.ttf \
     NotoSansEthiopic-Bold.ttf \
     NotoSansGlagolitic-Regular.ttf \
@@ -167,10 +163,6 @@ font_src_files += \
     NotoSansTeluguUI-Bold.ttf \
     NotoSansThaana-Regular.ttf \
     NotoSansThaana-Bold.ttf \
-    NotoSansThai-Regular.ttf \
-    NotoSansThai-Bold.ttf \
-    NotoSansThaiUI-Regular.ttf \
-    NotoSansThaiUI-Bold.ttf \
     NotoSansTibetan-Regular.ttf \
     NotoSansTibetan-Bold.ttf \
     NotoSansTifinagh-Regular.ttf \
@@ -189,12 +181,20 @@ font_src_files += \
     NotoNaskhArabicUI-Bold.ttf \
     NotoSansArmenian-Regular.ttf \
     NotoSansArmenian-Bold.ttf \
+    NotoSansDevanagari-Regular.ttf \
+    NotoSansDevanagari-Bold.ttf \
+    NotoSansDevanagariUI-Regular.ttf \
+    NotoSansDevanagariUI-Bold.ttf \
     NotoSansGeorgian-Regular.ttf \
     NotoSansGeorgian-Bold.ttf \
     NotoSansHebrew-Regular.ttf \
     NotoSansHebrew-Bold.ttf \
     NotoSansSymbols-Regular-Subsetted.ttf \
-    NotoSansSymbols-Regular-Subsetted2.ttf
+    NotoSansSymbols-Regular-Subsetted2.ttf \
+    NotoSansThai-Regular.ttf \
+    NotoSansThai-Bold.ttf \
+    NotoSansThaiUI-Regular.ttf \
+    NotoSansThaiUI-Bold.ttf
 endif # !MINIMAL_FONT_FOOTPRINT
 
 $(foreach f, $(font_src_files), $(call build-one-font-module, $(f)))

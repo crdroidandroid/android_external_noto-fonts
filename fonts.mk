@@ -94,7 +94,10 @@ PRODUCT_PACKAGES := \
     NotoSansOriya-Bold.ttf \
     NotoSansOriyaUI-Regular.ttf \
     NotoSansOriyaUI-Bold.ttf \
+    NotoSansPhagsPa-Regular.ttf \
     NotoSansRejang-Regular.ttf \
+    NotoSansRunic-Regular.ttf \
+    NotoSansSamaritan-Regular.ttf \
     NotoSansSaurashtra-Regular.ttf \
     NotoSansSinhala-Regular.ttf \
     NotoSansSinhala-Bold.ttf \
@@ -102,7 +105,10 @@ PRODUCT_PACKAGES := \
     NotoSansSylotiNagri-Regular.ttf \
     NotoSansSymbols-Regular-Subsetted.ttf \
     NotoSansSymbols-Regular-Subsetted2.ttf \
+    NotoSansSyriacEastern-Regular.ttf \
     NotoSansSyriacEstrangela-Regular.ttf \
+    NotoSansSyriacWestern-Regular.ttf \
+    NotoSansTagalog-Regular.ttf \
     NotoSansTagbanwa-Regular.ttf \
     NotoSansTaiLe-Regular.ttf \
     NotoSansTaiTham-Regular.ttf \

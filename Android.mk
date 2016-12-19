@@ -142,13 +142,19 @@ font_src_files += \
     NotoSansOriya-Bold.ttf \
     NotoSansOriyaUI-Regular.ttf \
     NotoSansOriyaUI-Bold.ttf \
+    NotoSansPhagsPa-Regular.ttf \
     NotoSansRejang-Regular.ttf \
+    NotoSansRunic-Regular.ttf \
+    NotoSansSamaritan-Regular.ttf \
     NotoSansSaurashtra-Regular.ttf \
     NotoSansSinhala-Regular.ttf \
     NotoSansSinhala-Bold.ttf \
     NotoSansSundanese-Regular.ttf \
     NotoSansSylotiNagri-Regular.ttf \
+    NotoSansSyriacEastern-Regular.ttf \
     NotoSansSyriacEstrangela-Regular.ttf \
+    NotoSansSyriacWestern-Regular.ttf \
+    NotoSansTagalog-Regular.ttf \
     NotoSansTagbanwa-Regular.ttf \
     NotoSansTaiLe-Regular.ttf \
     NotoSansTaiTham-Regular.ttf \

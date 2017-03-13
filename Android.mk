@@ -81,6 +81,7 @@ font_src_files := \
 #############################################################################
 ifneq ($(SMALLER_FONT_FOOTPRINT),true)
 font_src_files += \
+    NotoSansAvestan-Regular.ttf \
     NotoSansBalinese-Regular.ttf \
     NotoSansBamum-Regular.ttf \
     NotoSansBatak-Regular.ttf \
@@ -88,16 +89,23 @@ font_src_files += \
     NotoSansBengali-Bold.ttf \
     NotoSansBengaliUI-Regular.ttf \
     NotoSansBengaliUI-Bold.ttf \
+    NotoSansBrahmi-Regular.ttf \
     NotoSansBuginese-Regular.ttf \
     NotoSansBuhid-Regular.ttf \
     NotoSansCanadianAboriginal-Regular.ttf \
+    NotoSansCarian-Regular.ttf \
     NotoSansCham-Regular.ttf \
     NotoSansCham-Bold.ttf \
     NotoSansCherokee-Regular.ttf \
     NotoSansCoptic-Regular.ttf \
+    NotoSansCuneiform-Regular.ttf \
+    NotoSansCypriot-Regular.ttf \
+    NotoSansDeseret-Regular.ttf \
+    NotoSansEgyptianHieroglyphs-Regular.ttf \
     NotoSansEthiopic-Regular.ttf \
     NotoSansEthiopic-Bold.ttf \
     NotoSansGlagolitic-Regular.ttf \
+    NotoSansGothic-Regular.ttf \
     NotoSansGujarati-Regular.ttf \
     NotoSansGujarati-Bold.ttf \
     NotoSansGujaratiUI-Regular.ttf \
@@ -107,12 +115,17 @@ font_src_files += \
     NotoSansGurmukhiUI-Regular.ttf \
     NotoSansGurmukhiUI-Bold.ttf \
     NotoSansHanunoo-Regular.ttf \
+    NotoSansImperialAramaic-Regular.ttf \
+    NotoSansInscriptionalPahlavi-Regular.ttf \
+    NotoSansInscriptionalParthian-Regular.ttf \
     NotoSansJavanese-Regular.ttf \
+    NotoSansKaithi-Regular.ttf \
     NotoSansKannada-Regular.ttf \
     NotoSansKannada-Bold.ttf \
     NotoSansKannadaUI-Regular.ttf \
     NotoSansKannadaUI-Bold.ttf \
     NotoSansKayahLi-Regular.ttf \
+    NotoSansKharoshthi-Regular.ttf \
     NotoSansKhmer-Regular.ttf \
     NotoSansKhmer-Bold.ttf \
     NotoSansKhmerUI-Regular.ttf \
@@ -123,7 +136,10 @@ font_src_files += \
     NotoSansLaoUI-Bold.ttf \
     NotoSansLepcha-Regular.ttf \
     NotoSansLimbu-Regular.ttf \
+    NotoSansLinearB-Regular.ttf \
     NotoSansLisu-Regular.ttf \
+    NotoSansLycian-Regular.ttf \
+    NotoSansLydian-Regular.ttf \
     NotoSansMalayalam-Regular.ttf \
     NotoSansMalayalam-Bold.ttf \
     NotoSansMalayalamUI-Regular.ttf \
@@ -137,16 +153,24 @@ font_src_files += \
     NotoSansMyanmarUI-Bold.ttf \
     NotoSansNewTaiLue-Regular.ttf \
     NotoSansNKo-Regular.ttf \
+    NotoSansOgham-Regular.ttf \
     NotoSansOlChiki-Regular.ttf \
+    NotoSansOldItalic-Regular.ttf \
+    NotoSansOldPersian-Regular.ttf \
+    NotoSansOldSouthArabian-Regular.ttf \
+    NotoSansOldTurkic-Regular.ttf \
     NotoSansOriya-Regular.ttf \
     NotoSansOriya-Bold.ttf \
     NotoSansOriyaUI-Regular.ttf \
     NotoSansOriyaUI-Bold.ttf \
+    NotoSansOsmanya-Regular.ttf \
     NotoSansPhagsPa-Regular.ttf \
+    NotoSansPhoenician-Regular.ttf \
     NotoSansRejang-Regular.ttf \
     NotoSansRunic-Regular.ttf \
     NotoSansSamaritan-Regular.ttf \
     NotoSansSaurashtra-Regular.ttf \
+    NotoSansShavian-Regular.ttf \
     NotoSansSinhala-Regular.ttf \
     NotoSansSinhala-Bold.ttf \
     NotoSansSundanese-Regular.ttf \
@@ -172,6 +196,7 @@ font_src_files += \
     NotoSansTibetan-Regular.ttf \
     NotoSansTibetan-Bold.ttf \
     NotoSansTifinagh-Regular.ttf \
+    NotoSansUgaritic-Regular.ttf \
     NotoSansVai-Regular.ttf \
     NotoSansYi-Regular.ttf
 endif # !SMALLER_FONT_FOOTPRINT

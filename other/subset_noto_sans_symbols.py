@@ -42,13 +42,31 @@ BLOCKS_TO_INCLUDE = """
 27C0..27EF; Miscellaneous Mathematical Symbols-A
 27F0..27FF; Supplemental Arrows-A
 2800..28FF; Braille Patterns
+2900..297F; Supplemental Arrows-B
+2980..29FF; Miscellaneous Mathematical Symbols-B
 2A00..2AFF; Supplemental Mathematical Operators
+2B00..2BFF; Miscellaneous Symbols and Arrows
+4DC0..4DFF; Yijing Hexagram Symbols
+10140..1018F; Ancient Greek Numbers
+10190..101CF; Ancient Symbols
+101D0..101FF; Phaistos Disc
+1D000..1D0FF; Byzantine Musical Symbols
+1D100..1D1FF; Musical Symbols
+1D200..1D24F; Ancient Greek Musical Notation
+1D300..1D35F; Tai Xuan Jing Symbols
+1D360..1D37F; Counting Rod Numerals
+1D400..1D7FF; Mathematical Alphanumeric Symbols
+1F000..1F02F; Mahjong Tiles
+1F030..1F09F; Domino Tiles
+1F0A0..1F0FF; Playing Cards
+1F700..1F77F; Alchemical Symbols
 """
 
 # One-off characters to be included, needed for backward compatibility and
 # supporting various character sets, including ARIB sets and black and white
 # emoji
 ONE_OFF_ADDITIONS = {
+    0x20BF, # ₿ BITCOIN SIGN
     0x27D0, # ⟐ WHITE DIAMOND WITH CENTRED DOT
     0x2934, # ⤴ ARROW POINTING RIGHTWARDS THEN CURVING UPWARDS
     0x2935, # ⤵ ARROW POINTING RIGHTWARDS THEN CURVING DOWNWARDS

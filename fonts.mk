@@ -78,8 +78,7 @@ PRODUCT_PACKAGES := \
     NotoSansKannadaUI-Bold.ttf \
     NotoSansKayahLi-Regular.ttf \
     NotoSansKharoshthi-Regular.ttf \
-    NotoSansKhmer-Regular.ttf \
-    NotoSansKhmer-Bold.ttf \
+    NotoSansKhmer-VF.ttf \
     NotoSansKhmerUI-Regular.ttf \
     NotoSansKhmerUI-Bold.ttf \
     NotoSansLao-Regular.ttf \

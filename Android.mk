@@ -65,7 +65,6 @@ endif # !MINIMAL_FONT_FOOTPRINT
 # Now "build" the rest of the fonts, which live in a separate subdirectory.
 #############################################################################
 LOCAL_PATH := $(NOTO_DIR)/other
-NOTO_DIR :=
 
 #############################################################################
 # The following fonts are included in all builds.
@@ -126,8 +125,6 @@ font_src_files += \
     NotoSansKannadaUI-Bold.ttf \
     NotoSansKayahLi-Regular.ttf \
     NotoSansKharoshthi-Regular.ttf \
-    NotoSansKhmer-Regular.ttf \
-    NotoSansKhmer-Bold.ttf \
     NotoSansKhmerUI-Regular.ttf \
     NotoSansKhmerUI-Bold.ttf \
     NotoSansLao-Regular.ttf \
@@ -229,5 +226,24 @@ font_src_files += \
 endif # !MINIMAL_FONT_FOOTPRINT
 
 $(foreach f, $(font_src_files), $(call build-one-font-module, $(f)))
+
+#############################################################################
+# Now "build" the variable fonts, which live in a separate subdirectory.
+# The only variable fonts are for Khmer Sans, which is excluded in
+# SMALLER_FONT_FOOTPRINT build.
+#############################################################################
+
+ifneq ($(SMALLER_FONT_FOOTPRINT),true)
+
+LOCAL_PATH := $(NOTO_DIR)/other-vf
+
+font_src_files := \
+    NotoSansKhmer-VF.ttf
+
+$(foreach f, $(font_src_files), $(call build-one-font-module, $(f)))
+
+endif # !SMALLER_FONT_FOOTPRINT
+
+NOTO_DIR :=
 build-one-font-module :=
 font_src_files :=

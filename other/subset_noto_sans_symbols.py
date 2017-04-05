@@ -19,6 +19,7 @@
 
 __author__ = 'roozbeh@google.com (Roozbeh Pournader)'
 
+import os
 import sys
 
 from nototools import subset
@@ -62,26 +63,11 @@ BLOCKS_TO_INCLUDE = """
 1F700..1F77F; Alchemical Symbols
 """
 
-# One-off characters to be included, needed for backward compatibility and
-# supporting various character sets, including ARIB sets and black and white
-# emoji
+# One-off characters to be included. At the moment, this is the Bitcoin sign
+# (since it's not supported in Roboto yet, and the Japanese TV symbols of
+# Unicode 9.
 ONE_OFF_ADDITIONS = {
     0x20BF, # ₿ BITCOIN SIGN
-    0x27D0, # ⟐ WHITE DIAMOND WITH CENTRED DOT
-    0x2934, # ⤴ ARROW POINTING RIGHTWARDS THEN CURVING UPWARDS
-    0x2935, # ⤵ ARROW POINTING RIGHTWARDS THEN CURVING DOWNWARDS
-    0x2985, # ⦅ LEFT WHITE PARENTHESIS
-    0x2986, # ⦆ RIGHT WHITE PARENTHESIS
-    0x2B05, # ⬅ LEFTWARDS BLACK ARROW
-    0x2B06, # ⬆ UPWARDS BLACK ARROW
-    0x2B07, # ⬇ DOWNWARDS BLACK ARROW
-    0x2B24, # ⬤ BLACK LARGE CIRCLE
-    0x2B2E, # ⬮ BLACK VERTICAL ELLIPSE
-    0x2B2F, # ⬯ WHITE VERTICAL ELLIPSE
-    0x2B56, # ⭖ HEAVY OVAL WITH OVAL INSIDE
-    0x2B57, # ⭗ HEAVY CIRCLE WITH CIRCLE INSIDE
-    0x2B58, # ⭘ HEAVY CIRCLE
-    0x2B59, # ⭙ HEAVY CIRCLED SALTIRE
     0x1F19B, # 🆛 SQUARED THREE D
     0x1F19C, # 🆜 SQUARED SECOND SCREEN
     0x1F19D, # 🆝 SQUARED TWO K;So;0;L;;;;;N;;;;;
@@ -133,22 +119,24 @@ LETTERLIKE_CHARS_IN_ROBOTO = {
 
 DEFAULT_EMOJI = unicode_data.get_presentation_default_emoji()
 
+EMOJI_ADDITIONS_FILE = os.path.join(
+    os.path.dirname(__file__), os.path.pardir, os.path.pardir,
+    'unicode', 'additions', 'emoji-data.txt')
+
+
 # Characters we have decided we are doing as emoji-style in Android,
 # despite UTR#51's recommendation
-ANDROID_EMOJI = {
-    0x2600, # ☀ BLACK SUN WITH RAYS
-    0x2601, # ☁ CLOUD
-    0X260E, # ☎ BLACK TELEPHONE
-    0x261D, # ☝ WHITE UP POINTING INDEX
-    0x263A, # ☺ WHITE SMILING FACE
-    0x2660, # ♠ BLACK SPADE SUIT
-    0x2663, # ♣ BLACK CLUB SUIT
-    0x2665, # ♥ BLACK HEART SUIT
-    0x2666, # ♦ BLACK DIAMOND SUIT
-    0x270C, # ✌ VICTORY HAND
-    0x2744, # ❄ SNOWFLAKE
-    0x2764, # ❤ HEAVY BLACK HEART
-}
+def get_android_emoji():
+    """Return additional Android default emojis."""
+    android_emoji = set()
+    with open(EMOJI_ADDITIONS_FILE) as emoji_additions:
+        data = unicode_data._parse_semicolon_separated_data(
+            emoji_additions.read())
+        for codepoint, prop in data:
+            if prop == 'Emoji_Presentation':
+                android_emoji.add(int(codepoint, 16))
+    return android_emoji
+
 
 def main(argv):
     """Subset the Noto Symbols font.
@@ -167,7 +155,8 @@ def main(argv):
     # Remove characters preferably coming from Roboto
     target_coverage -= LETTERLIKE_CHARS_IN_ROBOTO
     # Remove characters that are supposed to default to emoji
-    target_coverage -= DEFAULT_EMOJI | ANDROID_EMOJI
+    android_emoji = get_android_emoji()
+    target_coverage -= DEFAULT_EMOJI | android_emoji
 
     # Remove dentistry symbols, as their main use appears to be for CJK:
     # http://www.unicode.org/L2/L2000/00098-n2195.pdf
@@ -184,7 +173,7 @@ def main(argv):
         target_file_name,
         include=target_coverage)
 
-    second_subset_coverage = DEFAULT_EMOJI | ANDROID_EMOJI
+    second_subset_coverage = DEFAULT_EMOJI | android_emoji
     second_subset_file_name = argv[3]
     subset.subset_font(
         source_file_name,

@@ -80,6 +80,7 @@ font_src_files := \
 #############################################################################
 ifneq ($(SMALLER_FONT_FOOTPRINT),true)
 font_src_files += \
+    NotoSansAdlam-Regular.ttf \
     NotoSansAvestan-Regular.ttf \
     NotoSansBalinese-Regular.ttf \
     NotoSansBamum-Regular.ttf \

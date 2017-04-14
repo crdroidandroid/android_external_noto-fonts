@@ -22,6 +22,7 @@ PRODUCT_PACKAGES := \
     NotoNaskhArabic-Bold.ttf \
     NotoNaskhArabicUI-Regular.ttf \
     NotoNaskhArabicUI-Bold.ttf \
+    NotoSansAdlam-Regular.ttf \
     NotoSansArmenian-Regular.ttf \
     NotoSansArmenian-Bold.ttf \
     NotoSansAvestan-Regular.ttf \

@@ -38,8 +38,8 @@ version that the emoji was added (compatAdded). Updated when the script is execu
 
 After execution the following files are generated if they don't exist otherwise, they are updated:
 - font/NotoColorEmojiCompat.ttf
-- data/emoji_metadata.txt
 - supported-emojis/emojis.txt
+- data/emoji_metadata.txt
 - src/java/android/support/text/emoji/flatbuffer/*
 """
 

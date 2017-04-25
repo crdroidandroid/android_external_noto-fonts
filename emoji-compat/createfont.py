@@ -40,7 +40,6 @@ After execution the following files are generated if they don't exist otherwise,
 - font/NotoColorEmojiCompat.ttf
 - data/emoji_metadata.txt
 - supported-emojis/emojis.txt
-- libs/noto-emoji-compat-java.jar
 - src/java/android/support/text/emoji/flatbuffer/*
 """
 
@@ -82,7 +81,8 @@ EMOJI_SEQ_FILE = 'emoji-sequences.txt'
 EMOJI_ZWJ_FILE = 'emoji-zwj-sequences.txt'
 EMOJI_VARIATION_SEQ_FILE = 'emoji-variation-sequences.txt'
 # Android OS emoji file for emojis that are not in Unicode files
-ANDROID_EMOJIS_FILE = os.path.join('additions', 'emoji-zwj-sequences.txt')
+ANDROID_EMOJI_ZWJ_SEQ_FILE = os.path.join('additions', 'emoji-zwj-sequences.txt')
+ANDROID_EMOJIS_SEQ_FILE = os.path.join('additions', 'emoji-sequences.txt')
 # Android OS emoji style override file. Codepoints that are rendered with emoji style by default
 # even though not defined so in <code>emoji-data.txt</code>.
 EMOJI_STYLE_OVERRIDE_FILE = os.path.join('additions', 'emoji-data.txt')
@@ -155,12 +155,8 @@ def create_test_data(unicode_path):
     lines = read_emoji_lines(os.path.join(unicode_path, EMOJI_ZWJ_FILE))
     lines += read_emoji_lines(os.path.join(unicode_path, EMOJI_SEQ_FILE))
 
-    android_emojis_file_path = os.path.join(unicode_path, ANDROID_EMOJIS_FILE)
-    # Add the optional ANDROID_EMOJIS_FILE if it exists.
-    try:
-        lines += read_emoji_lines(android_emojis_file_path)
-    except IOError:
-        pass
+    lines += read_emoji_lines(os.path.join(unicode_path, ANDROID_EMOJI_ZWJ_SEQ_FILE), optional=True)
+    lines += read_emoji_lines(os.path.join(unicode_path, ANDROID_EMOJIS_SEQ_FILE), optional=True)
 
     # standardized variants contains a huge list of sequences, only read the ones that are emojis
     # and also the ones with FE0F (emoji style)
@@ -242,18 +238,26 @@ class _EmojiData(object):
         self.compat_added = compat_added
 
 
-def read_emoji_lines(file_path):
+def read_emoji_lines(file_path, optional=False):
     """Read all lines in an unicode emoji file into a list of uppercase strings. Ignore the empty
     lines and comments
     :param file_path: unicode emoji file path
+    :param optional: if True no exception is raised when the file cannot be read
     :return: list of uppercase strings
     """
     result = []
-    with open(file_path) as file_stream:
-        for line in file_stream:
-            line = line.strip()
-            if line and not line.startswith('#'):
-                result.append(line.upper())
+    try:
+        with open(file_path) as file_stream:
+            for line in file_stream:
+                line = line.strip()
+                if line and not line.startswith('#'):
+                    result.append(line.upper())
+    except IOError:
+        if optional:
+            pass
+        else:
+            raise
+
     return result
 
 def get_emoji_style_exceptions(unicode_path):
@@ -318,10 +322,10 @@ def read_emoji_intervals(emoji_data_map, file_path, emoji_style_exceptions):
                 emoji_data_map[key] = emoji_data
 
 
-def read_emoji_sequences(emoji_data_map, file_path):
+def read_emoji_sequences(emoji_data_map, file_path, optional=False):
     """Reads the content of the file which contains emoji sequences. Creates EmojiData for each
     line and puts into emoji_data_map."""
-    lines = read_emoji_lines(file_path)
+    lines = read_emoji_lines(file_path, optional)
     # 1F1E6 1F1E8 ; Name ; [...]
     for line in lines:
         codepoints = [hex_str_to_int(x) for x in line.split(';')[0].strip().split(' ')]
@@ -343,12 +347,12 @@ def load_emoji_data_map(unicode_path):
     read_emoji_sequences(emoji_data_map, os.path.join(unicode_path, EMOJI_ZWJ_FILE))
     read_emoji_sequences(emoji_data_map, os.path.join(unicode_path, EMOJI_SEQ_FILE))
 
-    # Add the optional ANDROID_EMOJIS_FILE if it exists.
-    android_emojis_file_path = os.path.join(unicode_path, ANDROID_EMOJIS_FILE)
-    try:
-        read_emoji_sequences(emoji_data_map, android_emojis_file_path)
-    except IOError:
-        pass
+    # Add the optional ANDROID_EMOJI_ZWJ_SEQ_FILE if it exists.
+    read_emoji_sequences(emoji_data_map, os.path.join(unicode_path, ANDROID_EMOJI_ZWJ_SEQ_FILE),
+                         optional=True)
+    # Add the optional ANDROID_EMOJIS_SEQ_FILE if it exists.
+    read_emoji_sequences(emoji_data_map, os.path.join(unicode_path, ANDROID_EMOJIS_SEQ_FILE),
+                         optional=True)
 
     return emoji_data_map
 
@@ -474,7 +478,7 @@ class EmojiFontCreator(object):
         gsub = ttf['GSUB']
         for lookup in gsub.table.LookupList.Lookup:
             for subtable in lookup.SubTable:
-                if (hasattr(subtable, 'ligatures')):
+                if hasattr(subtable, 'ligatures'):
                     for name, ligatures in subtable.ligatures.iteritems():
                         for ligature in ligatures:
                             glyph_names = [name] + ligature.Component

@@ -21,6 +21,7 @@ import os
 
 from fontTools import ttLib
 from nototools import font_data
+from nototools import tool_utils
 from nototools import ttc_utils
 
 # Characters supported in Noto CJK fonts that UTR #51 recommends default to
@@ -71,6 +72,8 @@ ANDROID_EMOJI = {
     0x2764, # ❤ HEAVY BLACK HEART
 }
 
+EXCLUDED_EMOJI = sorted(EMOJI_IN_CJK | ANDROID_EMOJI)
+
 
 def remove_from_cmap(infile, outfile, exclude=frozenset()):
     """Removes a set of characters from a font file's cmap table."""
@@ -79,24 +82,19 @@ def remove_from_cmap(infile, outfile, exclude=frozenset()):
     font.save(outfile)
 
 
-TTC_NAME = 'NotoSansCJK-Regular.ttc'
-OTF_NAMES = ['NotoSans%sCJK%s-Regular.otf' % (mono, variant)
-             for mono in ['', 'Mono']
-             for variant in ['jp', 'kr', 'sc', 'tc']]
 TEMP_DIR = 'no-emoji'
 
+def remove_emoji_from_ttc(ttc_name):
+    otf_names = ttc_utils.ttcfile_extract(ttc_name, TEMP_DIR)
 
-if not os.path.exists(TEMP_DIR):
-    os.mkdir(TEMP_DIR)
+    with tool_utils.temp_chdir(TEMP_DIR):
+        for index, otf_name in enumerate(otf_names):
+            print 'Subsetting %s...' % otf_name
+            remove_from_cmap(otf_name, otf_name, exclude=EXCLUDED_EMOJI)
+        ttc_utils.ttcfile_build(ttc_name, otf_names)
+        for f in otf_names:
+            os.remove(f)
 
-for index, otf_name in enumerate(OTF_NAMES):
-    print 'Subsetting %s...' % otf_name
-    font = ttLib.TTFont(TTC_NAME, fontNumber=index)
-    font.save(otf_name)
-    remove_from_cmap(
-        otf_name,
-        os.path.join(TEMP_DIR, otf_name),
-        exclude=sorted(EMOJI_IN_CJK | ANDROID_EMOJI))
 
-os.chdir(TEMP_DIR)
-ttc_utils.build_ttc(TTC_NAME, OTF_NAMES)
+remove_emoji_from_ttc('NotoSansCJK-Regular.ttc')
+remove_emoji_from_ttc('NotoSerifCJK-Regular.ttc')

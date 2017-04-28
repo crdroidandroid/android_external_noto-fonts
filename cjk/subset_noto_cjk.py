@@ -72,7 +72,10 @@ ANDROID_EMOJI = {
     0x2764, # ❤ HEAVY BLACK HEART
 }
 
-EXCLUDED_EMOJI = sorted(EMOJI_IN_CJK | ANDROID_EMOJI)
+# We don't want support for ASCII control chars.
+CONTROL_CHARS = tool_utils.parse_int_ranges('0000-001F');
+
+EXCLUDED_CODEPOINTS = sorted(EMOJI_IN_CJK | ANDROID_EMOJI | CONTROL_CHARS)
 
 
 def remove_from_cmap(infile, outfile, exclude=frozenset()):
@@ -82,19 +85,19 @@ def remove_from_cmap(infile, outfile, exclude=frozenset()):
     font.save(outfile)
 
 
-TEMP_DIR = 'no-emoji'
+TEMP_DIR = 'subsetted'
 
-def remove_emoji_from_ttc(ttc_name):
+def remove_codepoints_from_ttc(ttc_name):
     otf_names = ttc_utils.ttcfile_extract(ttc_name, TEMP_DIR)
 
     with tool_utils.temp_chdir(TEMP_DIR):
         for index, otf_name in enumerate(otf_names):
             print 'Subsetting %s...' % otf_name
-            remove_from_cmap(otf_name, otf_name, exclude=EXCLUDED_EMOJI)
+            remove_from_cmap(otf_name, otf_name, exclude=EXCLUDED_CODEPOINTS)
         ttc_utils.ttcfile_build(ttc_name, otf_names)
         for f in otf_names:
             os.remove(f)
 
 
-remove_emoji_from_ttc('NotoSansCJK-Regular.ttc')
-remove_emoji_from_ttc('NotoSerifCJK-Regular.ttc')
+remove_codepoints_from_ttc('NotoSansCJK-Regular.ttc')
+remove_codepoints_from_ttc('NotoSerifCJK-Regular.ttc')

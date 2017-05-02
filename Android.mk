@@ -14,6 +14,8 @@
 
 NOTO_DIR := $(call my-dir)
 
+include $(call all-makefiles-under,$(NOTO_DIR))
+
 # We have to use BUILD_PREBUILT instead of PRODUCT_COPY_FILES,
 # to copy over the NOTICE file.
 #############################################################################

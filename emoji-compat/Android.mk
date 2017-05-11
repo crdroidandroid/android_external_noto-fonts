@@ -14,24 +14,14 @@
 
 LOCAL_PATH := $(call my-dir)
 
-
 include $(CLEAR_VARS)
 LOCAL_MODULE := noto-emoji-compat-java
 LOCAL_SRC_FILES := $(call all-java-files-under, src/java)
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
-    android-support-emoji-flatbuffers
+    flatbuffers-java
 
 LOCAL_JAR_EXCLUDE_FILES := none
 LOCAL_JAVA_LANGUAGE_VERSION := 1.7
 LOCAL_JARJAR_RULES := $(LOCAL_PATH)/jarjar-rules.txt
 include $(BUILD_STATIC_JAVA_LIBRARY)
-
-#############################################################
-# Pre-built dependency jars
-#############################################################
-
-include $(CLEAR_VARS)
-LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES := \
-    android-support-emoji-flatbuffers:libs/flatbuffers-java-1.6.0.jar
-include $(BUILD_MULTI_PREBUILT)

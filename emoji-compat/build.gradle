@@ -18,6 +18,10 @@ apply plugin: 'java'
 apply plugin: 'org.anarres.jarjar'
 apply plugin: 'maven'
 
+ext {
+    flatbuffersDir = '../../flatbuffers'
+}
+
 buildscript {
     repositories {
         maven { url '../../../prebuilts/tools/common/m2/repository' }
@@ -28,13 +32,9 @@ buildscript {
     }
 }
 
-dependencies {
-    compile files("libs/flatbuffers-java-1.6.0.jar")
-}
-
 sourceSets {
     main {
-        java.srcDirs = ['src/java']
+        java.srcDirs = ['src/java', "${flatbuffersDir}/java"]
     }
 }
 

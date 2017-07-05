@@ -49,6 +49,21 @@ font_src_files :=
 endif # !MINIMAL_FONT_FOOTPRINT
 
 #############################################################################
+# Similary "build" the Noto CJK fonts for serif family.
+# These are not included in SMALLER_FONT_FOOTPRINT builds.
+#############################################################################
+ifneq ($(SMALLER_FONT_FOOTPRINT),true)
+LOCAL_PATH := $(NOTO_DIR)/cjk
+
+font_src_files := \
+    NotoSerifCJK-Regular.ttc
+
+$(foreach f, $(font_src_files), $(call build-one-font-module, $(f)))
+font_src_files :=
+
+endif # !SMALLER_FONT_FOOTPRINT
+
+#############################################################################
 # Now "build" the Noto Color Emoji font, which is in its own directory. It is
 # not included in the MINIMAL_FONT_FOOTPRINT builds.
 #############################################################################
@@ -198,7 +213,31 @@ font_src_files += \
     NotoSansTifinagh-Regular.ttf \
     NotoSansUgaritic-Regular.ttf \
     NotoSansVai-Regular.ttf \
-    NotoSansYi-Regular.ttf
+    NotoSansYi-Regular.ttf \
+    NotoSerifArmenian-Bold.ttf \
+    NotoSerifArmenian-Regular.ttf \
+    NotoSerifBengali-Bold.ttf \
+    NotoSerifBengali-Regular.ttf \
+    NotoSerifDevanagari-Bold.ttf \
+    NotoSerifDevanagari-Regular.ttf \
+    NotoSerifGeorgian-Bold.ttf \
+    NotoSerifGeorgian-Regular.ttf \
+    NotoSerifGujarati-Bold.ttf \
+    NotoSerifGujarati-Regular.ttf \
+    NotoSerifHebrew-Bold.ttf \
+    NotoSerifHebrew-Regular.ttf \
+    NotoSerifKannada-Bold.ttf \
+    NotoSerifKannada-Regular.ttf \
+    NotoSerifLao-Bold.ttf \
+    NotoSerifLao-Regular.ttf \
+    NotoSerifMalayalam-Bold.ttf \
+    NotoSerifMalayalam-Regular.ttf \
+    NotoSerifTamil-Bold.ttf \
+    NotoSerifTamil-Regular.ttf \
+    NotoSerifTelugu-Bold.ttf \
+    NotoSerifTelugu-Regular.ttf \
+    NotoSerifThai-Bold.ttf \
+    NotoSerifThai-Regular.ttf
 endif # !SMALLER_FONT_FOOTPRINT
 
 #############################################################################

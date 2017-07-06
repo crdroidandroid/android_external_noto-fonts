@@ -39,6 +39,11 @@ sourceSets {
     }
 }
 
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+
 jarjar.repackage('rename') {
     destinationName "noto-emoji-compat-java.jar"
     from files(sourceSets.main.output.classesDirs)

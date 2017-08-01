@@ -47,13 +47,13 @@ from __future__ import print_function
 
 import contextlib
 import csv
+import hashlib
 import json
 import os
 import shutil
 import sys
 import tempfile
 from fontTools import ttLib
-
 
 ########### UPDATE OR CHECK WHEN A NEW FONT IS BEING GENERATED ###########
 # Last Android SDK Version
@@ -401,7 +401,7 @@ def inject_meta_into_font(ttf, flatbuffer_bin_filename):
     if not 'meta' in ttf:
         ttf['meta'] = ttLib.getTableClass('meta')()
     meta = ttf['meta']
-    with contextlib.closing(open(flatbuffer_bin_filename)) as flatbuffer_bin_file:
+    with open(flatbuffer_bin_filename) as flatbuffer_bin_file:
         meta.data[EMOJI_META_TAG_NAME] = flatbuffer_bin_file.read()
 
     # sort meta tables for faster access
@@ -423,6 +423,19 @@ def validate_input_files(font_path, unicode_path):
     for emoji_filename in emoji_filenames:
         if not os.path.isfile(emoji_filename):
             raise ValueError("Unicode emoji data file does not exist: " + emoji_filename)
+
+
+def add_file_to_sha(sha_algo, file_path):
+    with open(file_path, 'rb') as input_file:
+        for data in iter(lambda: input_file.read(8192), ''):
+            sha_algo.update(data)
+
+def create_sha_from_source_files(font_paths):
+    """Creates a SHA from the given font files"""
+    sha_algo = hashlib.sha256()
+    for file_path in font_paths:
+        add_file_to_sha(sha_algo, file_path)
+    return sha_algo.hexdigest()
 
 
 class EmojiFontCreator(object):
@@ -489,6 +502,8 @@ class EmojiFontCreator(object):
         """Writes the emojis into a json file"""
         output_json = {}
         output_json['version'] = METADATA_VERSION
+        output_json['sourceSha'] = create_sha_from_source_files(
+            [self.font_path, OUTPUT_META_FILE, FLATBUFFER_SCHEMA])
         output_json['list'] = []
 
         emoji_data_list = sorted(self.emoji_data_map.values(), key=lambda x: x.emoji_id)
@@ -549,12 +564,15 @@ class EmojiFontCreator(object):
             # add all new codepoint to glyph mappings
             cmap12_table.cmap.update(self.remapped_codepoints)
 
+            # final metadata csv will be used to generate the sha, therefore write it before
+            # metadata json is written.
+            self.write_metadata_csv()
+
             output_json_file = os.path.join(tmp_dir, OUTPUT_JSON_FILE_NAME)
             flatbuffer_bin_file = os.path.join(tmp_dir, FLATBUFFER_BIN)
             flatbuffer_java_dir = os.path.join(tmp_dir, FLATBUFFER_JAVA_PATH)
 
             total_emoji_count = self.write_metadata_json(output_json_file)
-            self.write_metadata_csv()
 
             # create the flatbuffers binary and java classes
             sys_command = 'flatc -o {0} -b -j {1} {2}'

@@ -18,7 +18,6 @@ namespace android.support.text.emoji.flatbuffer;
 table MetadataList {
     version : int;
     list : [MetadataItem];
-    sourceSha : string;
 }
 
 table MetadataItem {

@@ -160,4 +160,29 @@ PRODUCT_PACKAGES := \
     NotoSerif-Regular.ttf \
     NotoSerif-Bold.ttf \
     NotoSerif-Italic.ttf \
-    NotoSerif-BoldItalic.ttf
+    NotoSerif-BoldItalic.ttf \
+    NotoSerifArmenian-Bold.ttf \
+    NotoSerifArmenian-Regular.ttf \
+    NotoSerifBengali-Bold.ttf \
+    NotoSerifBengali-Regular.ttf \
+    NotoSerifCJK-Regular.ttc \
+    NotoSerifDevanagari-Bold.ttf \
+    NotoSerifDevanagari-Regular.ttf \
+    NotoSerifGeorgian-Bold.ttf \
+    NotoSerifGeorgian-Regular.ttf \
+    NotoSerifGujarati-Bold.ttf \
+    NotoSerifGujarati-Regular.ttf \
+    NotoSerifHebrew-Bold.ttf \
+    NotoSerifHebrew-Regular.ttf \
+    NotoSerifKannada-Bold.ttf \
+    NotoSerifKannada-Regular.ttf \
+    NotoSerifLao-Bold.ttf \
+    NotoSerifLao-Regular.ttf \
+    NotoSerifMalayalam-Bold.ttf \
+    NotoSerifMalayalam-Regular.ttf \
+    NotoSerifTamil-Bold.ttf \
+    NotoSerifTamil-Regular.ttf \
+    NotoSerifTelugu-Bold.ttf \
+    NotoSerifTelugu-Regular.ttf \
+    NotoSerifThai-Bold.ttf \
+    NotoSerifThai-Regular.ttf

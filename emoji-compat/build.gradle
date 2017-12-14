@@ -20,7 +20,6 @@ apply plugin: 'maven'
 
 ext {
     flatbuffersDir = '../../flatbuffers'
-    noDocs = true
 }
 
 buildscript {

@@ -492,13 +492,22 @@ class EmojiFontCreator(object):
     def read_gsub(self, ttf, glyph_to_codepoint_map):
         """Reads the emoji sequences defined in GSUB and clear all elements under GSUB"""
         gsub = ttf['GSUB']
+        ligature_subtables = []
+        context_subtables = []
+        # this code is font dependent, implementing all gsub rules is out of scope of EmojiCompat
+        # and would be expensive with little value
         for lookup in gsub.table.LookupList.Lookup:
             for subtable in lookup.SubTable:
                 if subtable.LookupType == 5:
-                    self.add_gsub_context_subtable(subtable, gsub.table.LookupList,
-                                                   glyph_to_codepoint_map)
+                    context_subtables.append(subtable)
                 elif subtable.LookupType == 4:
-                    self.add_gsub_ligature_subtable(subtable, glyph_to_codepoint_map)
+                    ligature_subtables.append(subtable)
+
+        for subtable in context_subtables:
+            self.add_gsub_context_subtable(subtable, gsub.table.LookupList, glyph_to_codepoint_map)
+
+        for subtable in ligature_subtables:
+            self.add_gsub_ligature_subtable(subtable, glyph_to_codepoint_map)
 
     def add_gsub_context_subtable(self, subtable, lookup_list, glyph_to_codepoint_map):
         """Add substitutions defined as OpenType Context Substitution"""

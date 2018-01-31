@@ -111,6 +111,7 @@ font_src_files += \
     NotoSansBuhid-Regular.ttf \
     NotoSansCanadianAboriginal-Regular.ttf \
     NotoSansCarian-Regular.ttf \
+    NotoSansChakma-Regular.ttf \
     NotoSansCham-Regular.ttf \
     NotoSansCham-Bold.ttf \
     NotoSansCherokee-Regular.ttf \
@@ -178,6 +179,7 @@ font_src_files += \
     NotoSansOriya-Bold.ttf \
     NotoSansOriyaUI-Regular.ttf \
     NotoSansOriyaUI-Bold.ttf \
+    NotoSansOsage-Regular.ttf \
     NotoSansOsmanya-Regular.ttf \
     NotoSansPhagsPa-Regular.ttf \
     NotoSansPhoenician-Regular.ttf \

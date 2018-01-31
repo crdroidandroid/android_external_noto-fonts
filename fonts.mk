@@ -38,6 +38,7 @@ PRODUCT_PACKAGES := \
     NotoSansBuhid-Regular.ttf \
     NotoSansCanadianAboriginal-Regular.ttf \
     NotoSansCarian-Regular.ttf \
+    NotoSansChakma-Regular.ttf \
     NotoSansCham-Regular.ttf \
     NotoSansCham-Bold.ttf \
     NotoSansCherokee-Regular.ttf \
@@ -106,6 +107,7 @@ PRODUCT_PACKAGES := \
     NotoSansNewTaiLue-Regular.ttf \
     NotoSansNKo-Regular.ttf \
     NotoSansOgham-Regular.ttf \
+    NotoSansOsage-Regular.ttf \
     NotoSansOlChiki-Regular.ttf \
     NotoSansOldItalic-Regular.ttf \
     NotoSansOldPersian-Regular.ttf \

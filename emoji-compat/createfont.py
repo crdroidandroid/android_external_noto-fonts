@@ -637,6 +637,10 @@ class EmojiFontCreator(object):
             # inject metadata binary into font
             inject_meta_into_font(ttf, flatbuffer_bin_file)
 
+            # update CBDT and CBLC versions since older android versions cannot read > 2.0
+            ttf['CBDT'].version = 2.0
+            ttf['CBLC'].version = 2.0
+
             # save the new font
             ttf.save(FONT_PATH)
 

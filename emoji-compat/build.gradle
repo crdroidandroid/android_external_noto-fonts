@@ -25,7 +25,7 @@ ext {
 buildscript {
     boolean unbundleBuild = (new File("unbundled-build")).exists()
     repositories {
-        maven { url '../../../prebuilts/tools/common/m2/repository' }
+        maven { url '../../../prebuilts/androidx/external' }
         if (unbundleBuild) {
             jcenter()
         }

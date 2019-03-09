@@ -38,7 +38,7 @@ buildscript {
 
 sourceSets {
     main {
-        java.srcDirs = ['src/java', "${flatbuffersDir}/java"]
+        java.srcDirs = ['src/java']
     }
 }
 
@@ -47,8 +47,13 @@ compileJava {
     targetCompatibility = JavaVersion.VERSION_1_7
 }
 
+dependencies {
+    compile 'com.google.flatbuffers:flatbuffers-java:1.8.0'
+}
+
 jarjar.repackage('rename') {
     destinationName "noto-emoji-compat-java.jar"
+    from 'com.google.flatbuffers:flatbuffers-java:1.8.0'
     from files(sourceSets.main.output.classesDirs)
     dependsOn sourceSets.main.output
     classRename 'com.google.flatbuffers.**', 'androidx.text.emoji.flatbuffer.@1'
